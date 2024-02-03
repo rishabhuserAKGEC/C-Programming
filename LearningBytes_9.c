@@ -6,26 +6,34 @@ In Modify() multiply each element of array by 3
 Return the control to main() function and print the new array elements in main()
 */
 
-int modify(int x)
+// Function modify-Value through pointer 
+int modify(int *ptr)
 {
+	int i;
+	for(i=0; i<10; i++)
+	{
+		*(ptr+i)=*(ptr+i)*3;
+	}
 	
-		return x * 3;
 	
 }
 int main()
 {
-	int arr[10]={0,1,2,3,4,5,6,7,8,9};
+	int arr[10]={1,2,3,4,5,6,7,8,9,10};
+	int *ptr,i;
 	printf("\nEntered elements of array are :\n");
 	for(i=0; i<10; i++)
 	{
+		//Display all array elements 
 		printf("%d, ",arr[i]);
 		
 	}
+	modify(arr);
 	
 	printf("\n");
 	for(i=0; i<10; i++)
 	{
-		printf("%d, ",modify(arr[i]));
+		printf("%d, ",arr[i]);
 		
 	}
 	
