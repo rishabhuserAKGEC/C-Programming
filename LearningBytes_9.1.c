@@ -3,9 +3,9 @@
 int main()
 {
 	FILE *fp;
-	char str[]="Hello World !",ch;
-	int i;
-	fp=fopen("newfile.txt","a");
+	char str[]="Again ...",ch;
+	int i,pos,npos;
+	fp=fopen("newfileprog.txt","a+");//File Opened in Append + read mode
 	if(fp==NULL)
 	{
 		printf("\nError in Opening the file .");
@@ -18,12 +18,15 @@ int main()
 		while(str[i]!='\0')
 		{
 			fputc(str[i],fp);
-			printf("%c",str[i]);
 			i++;
 			
 		}
-		// Reading the Characters from the file until EOF
-		while(ch=fgetc(fp)!=EOF)
+		//ftell - to get the current position 
+		pos=ftell(fp);
+		// fseek -to set the current position to 0 index
+		npos=fseek(fp,0,SEEK_SET);
+		
+		while((ch=fgetc(fp))!=EOF)
 		{
 			printf("%c",ch);
 		}
